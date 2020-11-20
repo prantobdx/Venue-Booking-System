@@ -39,8 +39,10 @@ class VenueController extends Controller
              if ($request->hasFile('image')) {
                 
                 $dir = 'images/venues_img/';
-                $extension = strtolower($request->file('image')->getClientOriginalExtension()); // get image extension
-                $fileName = str::random() . '.' . $extension; // rename image
+                $extension = strtolower($request->file('image')->getClientOriginalExtension()); 
+
+                $fileName = str::random() . '.' . $extension; 
+
                 $request->file('image')->move($dir, $fileName);
                 $venue->image = $fileName;
             }
@@ -86,8 +88,9 @@ class VenueController extends Controller
              if ($request->hasFile('image')) {
                 
                 $dir = 'images/venues_img/';
-                $extension = strtolower($request->file('image')->getClientOriginalExtension()); // get image extension
-                $fileName = str::random() . '.' . $extension; // rename image
+                $extension = strtolower($request->file('image')->getClientOriginalExtension());
+
+                $fileName = str::random() . '.' . $extension; /
                 $request->file('image')->move($dir, $fileName);
                 $venue->image = $fileName;
             }

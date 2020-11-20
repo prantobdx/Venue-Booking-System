@@ -133,6 +133,10 @@
     
     @yield('main_content')
     <!-- /.content-wrapper -->
+
+
+
+    
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b>No.1
