@@ -40,6 +40,7 @@ class VenueBookingController extends Controller
            $booking->user_id = Auth::user()->id;
 
            $booking->save();
+           
            return redirect()->back()->with('booking_venue_success','Your booking will be confirmd via phone call. Thank you!');
          }
      }
