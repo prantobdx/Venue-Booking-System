@@ -74,6 +74,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="col-log-3 col-sm-3 col-md-3">
             <div class="booking-formMain">
                 <div class="book-title">Enter Booking Details </div>    
