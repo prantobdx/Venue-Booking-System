@@ -16,7 +16,7 @@
                 <div class="text">
                     <h2>About</h2>
                 </div>
-                <div><h3 class="text-info">Welcome to Bd-Venue-Booking-System</h3></div>
+                <div><h3 class="text-info">Welcome to Venue-Booking-System</h3></div>
                 <div class="stickLine"></div>
             </div>
             <div class="row">

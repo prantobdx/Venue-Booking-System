@@ -28,6 +28,12 @@ Route::get('/about-us','HomeController@about_us')->name('about-us');
 //...................Inside the main page.....................
 Route::get('/venue-details/{id}','Backend\VenueController@showVenueDetails')->name('venue.details');
 
+Route::post('/booking','VenueBookingController@VenueBooking')->name('venue-booking');
+
+
+
+
+
 Auth::routes();
 
 
@@ -56,5 +62,11 @@ Route::get('/login','Backend\AdminLoginController@showLoginForm')->name('admin.l
 
 
     Route::get('/delete-venue/{id}', 'Backend\VenueController@deleteVenue')->name('admin.delete-venue');
+
+   Route::get('/booking-list','Backend\ManageBookingController@showBookingList')->name('admin.booking-list');
+
+   Route::get('/approved-booking/{id}', 'Backend\ManageBookingController@showBookingList')->name('admin.approved-booking');
+
+   Route::get('/delete-booking/{id}', 'Backend\ManageBookingController@deleteBooking')->name('admin.delete-booking');
 
 });

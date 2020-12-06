@@ -33,36 +33,26 @@
           
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../images/" class="user-image" alt="User Image">
+              <img src="{{asset('backend/my.jpg')}}" class="user-image" alt="User Image" style="width:35px;height:35px">
               <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
               
               <li class="user-header">
-                <img src="../images/users/" class="img-circle" alt="User Image">
-                <p>
-
-                </p>
+                <img src="{{asset('backend/my.jpg')}}" class="img-circle" alt="User Image">
               </li>
-              
-                  <!-- <div class="col-xs-12 text-center">
-                    <a href="{{ url('/user/profile') }}">Profile</a>
-                  </div> -->
                   
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="{{ url('/user/profile') }}" class="btn btn-info btn-block btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="{{ route('admin.logout') }}"  class="btn btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Sign out') }}</a>
+                <div class="pull-right ">
+                  <a href="{{ route('admin.logout') }}"  class="btn btn-danger btn-flat" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Sign out') }}</a>
                   <form id="logout-form" action="{{ route('admin.logout') }}" method="get" style="display: none;">@csrf</form>
                 </div>
               </li>
             </ul>
           </li>
-          >
+          
           <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          <a href="#" data-toggle="control-sidebar"> <i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -74,19 +64,18 @@
     <section class="sidebar">
       
       <div class="user-panel">
+        <div class="pull-left image">
+         
+            <img src="{{asset('backend/my.jpg')}}" class="img-circle" alt="User Image">
+          
+        </div>
         <div class="pull-left info">
-          <p></p>
+          <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       
-      <form action="#" method="post" class="sidebar-form">
-        <div class="input-group">
-          
-        </div>
-      </form>
-     
-      
+       
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="@if(Route::current()->getName() == 'admin.dashboard') active @endif">
@@ -107,27 +96,23 @@
             <li class="@if(Route::current()->getName() == 'admin.add-venues') active @endif" title="Add new Venue"> <a href="{{ route('admin.add-venues') }}"><i class="fa fa-circle-o"></i> Add new Venue</a></li>
 
             <li class="@if(Route::current()->getName() == 'admin.show-venue') active @endif"><a href="{{ route('admin.show-venue') }}"><i class="fa fa-circle-o"></i>Venue list</a></li>
-          </ul>
-        </li>
+          </ul></li>
 
-        <li class="treeview">
+        <li class="@if(Route::current()->getName() == 'admin.booking-list') active @endif  treeview">
+
         <a href="#">
           <i class="fa fa-list"></i>
-          <span>BookingList</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li class="">
+          <span>Manage-Booking</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="@if(Route::current()->getName() == 'admin.add-venues') active @endif" title="Add new Venue"> <a href="{{ route('admin.booking-list') }}"><i class="fa fa-circle-o"></i>Booking-List</a></li></ul>
+         </li>
+     </ul>
+     
 
-           <li> <i class="fa fa-circle-o" ></i> Ordered Booking list</li>
-
-        </ul>
-      </li>
-
-       
-      </ul>
     </section>
   </aside>
     

@@ -18,6 +18,7 @@ class AdminLoginController extends Controller
         return view('Backend.admin-login');
     }
     
+    
     public function login(Request $request){
         
         $this->validate($request, [
@@ -33,6 +34,8 @@ class AdminLoginController extends Controller
         
         return redirect()->back()->withInput($request->only('email','remember'));
     }
+
+
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();

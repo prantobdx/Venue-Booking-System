@@ -90,7 +90,7 @@ class VenueController extends Controller
                 $dir = 'images/venues_img/';
                 $extension = strtolower($request->file('image')->getClientOriginalExtension());
 
-                $fileName = str::random() . '.' . $extension; /
+                $fileName = str::random() . '.' . $extension; 
                 $request->file('image')->move($dir, $fileName);
                 $venue->image = $fileName;
             }

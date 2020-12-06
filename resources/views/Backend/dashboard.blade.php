@@ -54,7 +54,7 @@
             <div class="icon">
               <i class="fa fa-calendar"></i>
             </div>
-            <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('admin.show-venue') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -63,7 +63,7 @@
             <div class="inner">
               <h3></h3>
 
-              <p>Blogs</p>
+              <p>...</p>
             </div>
             <div class="icon">
               <i class="fa fa-flag"></i>
@@ -82,7 +82,7 @@
             <div class="icon">
               <i class="fa fa-book"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('admin.booking-list') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -96,7 +96,7 @@
             <div class="box-header">
               <i class="fa fa-book"></i>
 
-              <h3 class="box-title">Booking</h3>
+              <h3 class="box-title">New Order Booking</h3>
 
               <div class="box-tools pull-right">
                 <ul class="pagination pagination-sm inline">
@@ -105,25 +105,46 @@
               </div>
             </div>
             
-            <div class="box-body table-responsive">
+      <div class="box-body table-responsive">
               
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Phone</th>
-                  <th>Email</th>
-                  <th>Min - Max</th>
-                  <th>Date (Time)</th>
-                  <th>Note</th>
-                  <th>Event</th>
-                </tr>
-                </thead>
-               <tbody>
-                  
-                </tbody>
-              </table>
+        <table id="example2" class="table table-bordered table-hover">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date - Time</th>
+                <th>More-info</th>
+              </tr>
+              </thead>
+              <tbody>
+              <?php $sl=1; ?>
+              @foreach(App\Booking::orderBy('id', 'desc')->limit(3)->get() as $book)
+              <tr>
+                <td>{{$sl}}</td>
+                <td>{{$book->booked_by_name}}</td>
+                <td>{{$book->booked_by_email}}</td>
+                <td>{{$book->phone}}</td>
+                <td>{{$book->date}}- ({{ $book->start_time }}) to ({{ $book->end_time }})
+                </td>
+                <td><a href="{{ route('admin.booking-list') }}">Booking details</a></td>
+
+              </tr>
+              <?php $sl++; ?>
+              @endforeach
+              </tbody>
+              <tfoot>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date - Time</th>
+                <th>More-info</th>
+              </tr>
+              </tfoot>
+            </table>
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix no-border">
@@ -144,11 +165,11 @@
                 <!-- button with a dropdown -->
                 <div class="btn-group">
                   <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-bars"></i></button>
+                    <i class="fa fa-bars"> </i> </button>
                   <ul class="dropdown-menu pull-right" role="menu">
-                    <li><a href="#">Add new event</a></li>
-                    <li><a href="#">Clear events</a></li>
-                    <li class="divider"></li>
+                    <li><a href="#">Add new Venue</a></li>
+                    <li><a href="#">Clear Venue</a></li>
+                    <li class="divider"> </li>
                     <li><a href="#">View calendar</a></li>
                   </ul>
                 </div>
@@ -159,7 +180,7 @@
               </div>
               <!-- /. tools -->
             </div>
-            <
+
             <div class="box-body no-padding">
               <!--The calendar -->
               <div id="calendar" style="width: 100%"></div>
